@@ -72,7 +72,7 @@ class QtAT4 < Formula
       args << "-arch" << "x86"
     end
     
-    system "./configure -embedded", *args
+    system "./configure", "-embedded", *args
     system "make"
     ENV.deparallelize
     system "make", "install"
