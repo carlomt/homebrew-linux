@@ -16,7 +16,7 @@ class Root < Formula
   depends_on "carlomt/linux/davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran.
-  depends_on "graphviz"
+  # depends_on "graphviz"
   depends_on "gsl"
   depends_on "lz4"
   depends_on "openssl"
