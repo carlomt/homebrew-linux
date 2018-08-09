@@ -16,7 +16,12 @@ class QtAT4 < Formula
   depends_on "dbus" => :optional
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
+  depends_on "fontconfig"
+  depends_on "glib"
+  depends_on "linuxbrew/xorg/mesa"
+  depends_on "linuxbrew/xorg/xorg"
 
+  
   deprecated_option "qtdbus" => "with-dbus"
   deprecated_option "with-d-bus" => "with-dbus"
 
@@ -72,7 +77,7 @@ class QtAT4 < Formula
       args << "-arch" << "x86"
     end
     
-    system "./configure", "-embedded", *args
+    system "./configure", *args
     system "make"
     ENV.deparallelize
     system "make", "install"
