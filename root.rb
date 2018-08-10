@@ -89,9 +89,11 @@ class Root < Formula
 
       # cmake picks up the system's python dylib, even if we have a brewed one
       if File.exist? "#{python_prefix}/lib/lib#{python_version}.so"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.so"        
+        python_library = "#{python_prefix}/lib/lib#{python_version}.so"
+      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}m.so"
+        python_library = "#{python_prefix}/lib/lib#{python_version}m.so"        
       else
-        odie "No libpythonX.Y.{a,dylib} file found!"
+        odie "No libpythonX.Y{.so,m.so} file found! Looked for: #{python_prefix}/lib/lib#{python_version}.so"
       end
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
