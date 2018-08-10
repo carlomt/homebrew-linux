@@ -1,4 +1,4 @@
-class Root < Formula
+class Test < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
   url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
