@@ -93,7 +93,7 @@ class Root < Formula
       elsif File.exist? "#{python_prefix}/lib/libpython#{python_version}m.so"
         python_library = "#{python_prefix}/lib/libpython#{python_version}m.so"        
       else
-        odie "No libpythonX.Y{.so,m.so} file found! Looked for: #{python_prefix}/lib/libpython#{python_version}.so and #{python_prefix}/lib/libpython#{python_version}m.so""
+        odie "No libpythonX.Y{.so,m.so} file found! Looked for: #{python_prefix}/lib/libpython#{python_version}.so and #{python_prefix}/lib/libpython#{python_version}m.so"
       end
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
