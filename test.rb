@@ -93,6 +93,7 @@ class Test < Formula
       # else
       #   odie "No libpythonX.Y.{a,dylib} file found!"
       # end
+      python_library = "#{python_prefix}/lib/lib#{python_version}.so"
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       args << "-DPYTHON_LIBRARY='#{python_library}'"
