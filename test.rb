@@ -84,6 +84,10 @@ class Test < Formula
 
       # cmake picks up the system's python dylib, even if we have a brewed one
       odie "python prefix: #{python_prefix}"
+      odie "python library: #{python_library}"
+      odie "python include dir: #{python_include}"
+      odie "python executable: #{python_executable}"
+      
       if File.exist? "#{python_prefix}/Python"
         python_library = "#{python_prefix}/Python"
       elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
