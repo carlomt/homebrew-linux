@@ -110,5 +110,6 @@ class Test < Formula
     python include dir: #{python_include}   
     python executable: #{python_executable}
   EOS
-    
+  end
+  
 end
