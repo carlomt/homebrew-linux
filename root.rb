@@ -88,13 +88,8 @@ class Root < Formula
       args << "-Dpython=ON"
 
       # cmake picks up the system's python dylib, even if we have a brewed one
-      odie "python prefix: #{python_prefix}"
-      if File.exist? "#{python_prefix}/Python"
-        python_library = "#{python_prefix}/Python"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.a"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.dylib"
+      if File.exist? "#{python_prefix}/lib/lib#{python_version}.so"
+        python_library = "#{python_prefix}/lib/lib#{python_version}.so"        
       else
         odie "No libpythonX.Y.{a,dylib} file found!"
       end
