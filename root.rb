@@ -88,6 +88,7 @@ class Root < Formula
       args << "-Dpython=ON"
 
       # cmake picks up the system's python dylib, even if we have a brewed one
+      odie "python prefix: #{python_prefix}"
       if File.exist? "#{python_prefix}/Python"
         python_library = "#{python_prefix}/Python"
       elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
@@ -107,14 +108,7 @@ class Root < Formula
     mkdir "builddir" do
       system "cmake", "..", *args
 
-      # Work around superenv stripping out isysroot leading to errors with
-      # libsystem_symptoms.dylib (only available on >= 10.12) and
-      # libsystem_darwin.dylib (only available on >= 10.13)
-      if MacOS.version < :high_sierra
-        system "xcrun", "make", "install"
-      else
-        system "make", "install"
-      end
+      system "make", "install"
 
       chmod 0755, Dir[bin/"*.*sh"]
     end
